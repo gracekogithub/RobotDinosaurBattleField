@@ -10,6 +10,13 @@ namespace RobotDinosaurBattleField
     {
         static void Main(string[] args)
         {
+            // BattleField battlefield = new BattleField();
+            Dinosaur dino1 = new Dinosaur("DinoX");
+            Robot robot1 = new Robot("Stan");
+            dino1.Attack(robot1);
+
+            Console.WriteLine(robot1.Health);
+            Console.ReadLine();
         }
     }
 }

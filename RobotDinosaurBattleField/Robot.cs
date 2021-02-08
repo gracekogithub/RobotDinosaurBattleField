@@ -8,18 +8,53 @@ namespace RobotDinosaurBattleField
 {
     class Robot
     {
-        string robotName; 
-        int robotHealth;
+        public string robotName;
+        
+        public int Health;
+        public int attack;
+        public int defense;
+        public int count;
 
-        public Robot(string robotName)
+        public Robot(string name)
         {
-            this.robotName = robotName;
+            List<Robot> robot = new List<Robot>();
+            
+            robotName = name;
+            Health = 200;
+            attack = 0;
+            defense = 0;
+            count = 0;
         }
 
-        public void NameYourRobot()
+        public void PickRoboWeapon()
         {
-            string robotName = "RoboKing";
-            Console.WriteLine(robotName);
+            Console.WriteLine("RoboKing loaded a weapon");
+            
         }
+        //public void SwingSword()
+        //{
+        //    swing++;
+        //    if (swing > 1)
+        //    {
+        //        Console.WriteLine("RoboKing got 10 point");
+        //    }
+        //    else
+        //    {
+
+        //    }
+
+        //}
+        //public void CalculateRoboHealth()
+        //{
+        //    if (robotHealth <= 0)
+        //    {
+        //        Console.WriteLine("RoboKing lost the game.");
+        //    }
+        //    else 
+        //    {
+        //        Console.WriteLine("RoboKing! Please continue to play.");
+        //    }
+        //}
+       
     }
 }

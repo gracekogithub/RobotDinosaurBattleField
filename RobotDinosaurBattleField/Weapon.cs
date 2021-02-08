@@ -8,15 +8,25 @@ namespace RobotDinosaurBattleField
 {
     class Weapon
     {
-        string robotWeapon1;
-        string dinosaurWeapon1;
+        public string weaponName;
+        
+        public int attack;
+        public int defense;
+       
 
         public Weapon()
+        { 
+            weaponName = "Sword";
+           
+            attack = 0;
+            
+        }
+        public void ChooseYourWeapon()
         {
-            robotWeapon1 = "Sword";
-            dinosaurWeapon1 = "Fire";
-            //sword action: swing,block-- robot attack ability:punch,flip
-            //fire action:shootfire,block--dinosaur ability; bite,throw
+            Console.WriteLine("You have chosen: ");
+            Console.ReadLine();
         }
     }
 }
+//sword action: swing,block-- robot attack ability:punch,flip
+//fire action:shootfire,block--dinosaur ability; bite,throw
