@@ -8,8 +8,7 @@ namespace RobotDinosaurBattleField
 {
     class Herd
     {
-        public string dinosaurWeapon;
-        public bool dinosaurHealth;
+
         public int dinosaurEnergy;
         public List<Dinosaur> herd;
 
@@ -23,6 +22,8 @@ namespace RobotDinosaurBattleField
             herd.Add(dinosaur1);
             herd.Add(dinosaur2);
             herd.Add(dinosaur3);
+
+            dinosaurEnergy = 5;
         }
 
        

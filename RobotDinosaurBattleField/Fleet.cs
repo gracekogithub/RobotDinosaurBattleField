@@ -8,8 +8,8 @@ namespace RobotDinosaurBattleField
 {
     class Fleet
     {
-        public string robotWeapon;
-        public bool robotHealth;
+        public string roboWeapon;
+        public Robot roboHealth;
         public int robotEnergy;
         public List<Robot> fleet;
      
@@ -23,6 +23,9 @@ namespace RobotDinosaurBattleField
             fleet.Add(robot1);
             fleet.Add(robot2);
             fleet.Add(robot3);
+
+            
+            
 
         }
     }

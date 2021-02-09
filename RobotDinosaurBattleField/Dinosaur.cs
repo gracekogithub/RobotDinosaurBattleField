@@ -8,23 +8,25 @@ namespace RobotDinosaurBattleField
 {
     class Dinosaur
     {
-        public string dinosaurName;
+        public string dinosaurType;
         public int dinoHealth;
-        public int defense;
         public int attack;
+        public int count;
 
 
-        public Dinosaur(string dinosaurName)
+        public Dinosaur(string dinoType)
         {
-            this.dinosaurName = dinosaurName;
+            //List<Dinosaur> dino = new List<Dinosaur>();
+
+            dinosaurType = dinoType;
             dinoHealth = 100;
-            defense = 0;
             attack = 10;
+            count = 0;
         }
-        public void Attack(Robot robot)
+        public void AttackRobot(Robot robot)
         {
-            robot.Health = robot.Health - attack;
-            Console.WriteLine($"{dinosaurName} attacks {robot.robotName} for {attack}");
+            robot.roboHealth -= attack;
+            Console.WriteLine($"{dinosaurType} attacks {robot.robotName} for {attack}");
         }
     }
 }

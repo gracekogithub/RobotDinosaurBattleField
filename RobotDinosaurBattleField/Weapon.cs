@@ -8,23 +8,16 @@ namespace RobotDinosaurBattleField
 {
     class Weapon
     {
-        public string weaponName;
-        
-        public int attack;
-        public int defense;
-       
+        public string weaponType;
 
-        public Weapon()
+        public Weapon(string weapon)
         { 
-            weaponName = "Sword";
-           
-            attack = 0;
-            
+            weaponType = weapon;
         }
         public void ChooseYourWeapon()
         {
-            Console.WriteLine("You have chosen: ");
-            Console.ReadLine();
+            Console.WriteLine($"You have chosen: {weaponType}");
+           
         }
     }
 }
