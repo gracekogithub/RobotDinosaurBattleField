@@ -15,39 +15,31 @@ namespace RobotDinosaurBattleField
         
         public Robot(string name)
         {
-            List<Robot> robot = new List<Robot>();
+            //List<Robot> robot = new List<Robot>();
             
             robotName = name;
             roboHealth = 100;
-            attack = 10;
+            attack = 20;
             powerLevel = 5;
         }
 
-        public void AttackDino(Dinosaur dino)
+        public void AttackDino(Dinosaur dinos)
         {
-            dino.dinoHealth -= attack;
-            Console.WriteLine($"{robotName} attack {dino.dinosaurType} for {attack}.  ");
-            powerLevel--;
+            Console.WriteLine($"{robotName} attack {dinos.dinosaurType} for {attack}, " +
+            $"and {robotName} got {attack} points and power lever up as {powerLevel++} ");
+            dinos.dinoHealth -= attack;
+          
+        }
+      
+        public void ChoseYourWeapon(Weapon weaponType)
+        {
+            Console.WriteLine($"{robotName} loaded a {weaponType}");
 
         }
-        public void PickRoboWeapon()
-        {
-            Console.WriteLine($"{robotName} loaded a {Weapon.}");
+       
+        //    
 
-        }
-        //public void SwingSword()
-        //{
-        //    swing++;
-        //    if (swing > 1)
-        //    {
-        //        Console.WriteLine("RoboKing got 10 point");
-        //    }
-        //    else
-        //    {
-
-        //    }
-
-        //}
+ 
         //public void CalculateRoboHealth()
         //{
         //    if (robotHealth <= 0)

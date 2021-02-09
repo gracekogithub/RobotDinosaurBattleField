@@ -11,7 +11,8 @@ namespace RobotDinosaurBattleField
         public string dinosaurType;
         public int dinoHealth;
         public int attack;
-        public int count;
+        public int dinoEnergyLevel;
+        
 
 
         public Dinosaur(string dinoType)
@@ -20,13 +21,14 @@ namespace RobotDinosaurBattleField
 
             dinosaurType = dinoType;
             dinoHealth = 100;
-            attack = 10;
-            count = 0;
+            attack = 20;
+            dinoEnergyLevel = 5;
         }
         public void AttackRobot(Robot robot)
         {
-            robot.roboHealth -= attack;
-            Console.WriteLine($"{dinosaurType} attacks {robot.robotName} for {attack}");
+           robot.roboHealth -= attack;
+           Console.WriteLine($"{dinosaurType} attacks {robot.robotName} for {attack}," +
+                    $" and {dinosaurType} gained Energy Level {dinoEnergyLevel++}");
         }
     }
 }

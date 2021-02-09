@@ -14,11 +14,7 @@ namespace RobotDinosaurBattleField
         { 
             weaponType = weapon;
         }
-        public void ChooseYourWeapon()
-        {
-            Console.WriteLine($"You have chosen: {weaponType}");
-           
-        }
+        
     }
 }
 //sword action: swing,block-- robot attack ability:punch,flip

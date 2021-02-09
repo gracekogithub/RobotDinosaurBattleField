@@ -10,22 +10,20 @@ namespace RobotDinosaurBattleField
     {
         static void Main(string[] args)
         {
-            // BattleField battlefield = new BattleField();
-            Dinosaur dino1 = new Dinosaur("DinoX");
-            Dinosaur dino2 = new Dinosaur("DinoY");
-            Dinosaur dino3 = new Dinosaur("DinoZ");
-            Robot robot1 = new Robot("Stan");
-            Robot robot2 = new Robot("Bob");
-            Robot robot3 = new Robot("King");
-            dino1.AttackRobot(robot1);
-            robot2.AttackDino(dino2);
-            dino2.AttackRobot(robot2);
-            robot3.AttackDino(dino3);
+            //Dinosaur dino1 = new Dinosaur("DinoX");
+            //Robot robot1 = new Robot("Stan");
+            //dino1.AttackRobot(robot1);
+            //Console.WriteLine(robot1.roboHealth);
 
-            Console.WriteLine(robot1.roboHealth);
-            Console.WriteLine(dino2.dinoHealth);
-            Console.WriteLine(robot2.roboHealth);
-            Console.WriteLine(dino3.dinoHealth);
+            BattleField run = new BattleField();
+            
+            while (roboFleet.fleet.Add(roboHealth) < 100 || dinoHerd.herd.Add(dinoHealth) < 100)
+            {
+                run.RunBattle();
+            }
+                
+            
+            Console.WriteLine(run);
             Console.ReadLine();
         }
     }
