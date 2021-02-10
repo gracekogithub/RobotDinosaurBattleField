@@ -6,66 +6,78 @@ using System.Threading.Tasks;
 
 namespace RobotDinosaurBattleField
 {
-    class BattleField
+    public class BattleField
     {
-        public int countRobo;
-        public int countDino;
+        public bool roboTurn;
         public Fleet roboFleet;
         public Herd dinoHerd;
-        public int dinoHealthTotal;
-        public int roboHealthTotal;
-        public Robot robot;
-
-
         public BattleField()
         {
             roboFleet = new Fleet();
             dinoHerd = new Herd();
-            dinoHealthTotal = 100;
-            roboHealthTotal = 100;
-            
-
+            roboTurn = true;            
         }
 
         public void RunBattle()
         {
-            Console.WriteLine("Welcome to Robot vs Dinosaur Battlefield!\n " +
-                "The robot team will attack first.");
-            TurnAttack();
-            
-
+            Welcome();
+            ChooseYourWeaponNow();
+            AttackDinoNow();
+            AttackRobotNow();
+            ChooseRematch();
+            Console.ReadLine();
         }
-        
-        public void TurnAttack()
+        public void Welcome()
         {
-          
-            int countRobo = roboFleet.fleet.Count;
-            int countDino = dinoHerd.herd.Count;
-            roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
-
-            int i = 0; i++;
-            if (roboFleet.fleet.Count > dinoHerd.herd.Count)
-            {
-                roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
-                Console.WriteLine("This round, Robot wins");
-                (dinoHerd.herd).RemoveAt(0);
-                i++;
-            }
-            if (roboFleet.fleet.Count < dinoHerd.herd.Count)
-            {
-                dinoHerd.herd[0].AttackRobot(roboFleet.fleet[0]);
-                Console.WriteLine("This round, Dinosaur wins");
-                (roboFleet.fleet).RemoveAt(0);
-                i++;
-            }
+            Console.WriteLine("Welcome to Robot vs Dinosaur Battlefield!\n" +
+                "The robot team will attack first.");
+        }
+        public void AttackRobotNow()
+        {
+            Console.WriteLine($"A dinosaur{dinoHerd.herd[0].dinoType} attacks a robot{roboFleet.fleet[0].robotName} now.");
+        }
+        public void ChooseYourWeaponNow()
+        {
+            Console.WriteLine($"{roboFleet.fleet[0].robotName} picked a sword.");
            
-            if (roboFleet.fleet.Count == 0 || dinoHerd.herd.Count == 0 )
+        }
+        public void AttackDinoNow()
+        {
+            Console.WriteLine($"A Robot{roboFleet.fleet[0].robotName} attacks a {dinoHerd.herd[0].dinoType} now ");
+        }
+        public int ChooseRematch() 
+        {
+            Console.WriteLine();
+            for (int i = 0; i < roboFleet.fleet.Count; i++)
             {
-                Console.WriteLine("Game Over!");
+                Console.WriteLine("Choose a number " + i + " for " + roboFleet.fleet[i].robotName);
             }
-            
-            
+            string userInput = Console.ReadLine();
+            int convertedUserInput = Int32.Parse(userInput);
+            return convertedUserInput;
+        }
+        public void TurnAttack(int attackIn, int defenseIn)
+        {
+            if (roboTurn == true)
+            {
+                roboFleet.fleet[attackIn].AttackDino(dinoHerd.herd[defenseIn]);
+                if (dinoHerd.herd[defenseIn].dinoHealth <= 0)
+                {
+                    dinoHerd.herd.RemoveAt(defenseIn);
+                    Console.WriteLine(dinoHerd.herd[defenseIn].dinoType + " was removed from the battlefield.");
+                }
+            }
+            else
+            {
+                dinoHerd.herd[attackIn].AttackRobot(roboFleet.fleet[defenseIn]);
+                if(roboFleet.fleet[defenseIn].roboHealth <= 0)
+                {
+                    roboFleet.fleet.RemoveAt(defenseIn);
+                    Console.WriteLine(roboFleet.fleet[defenseIn].robotName + "has been removed. ");
+                }
+            }
+            roboTurn = !roboTurn;
         }
     }
-    
+
 }

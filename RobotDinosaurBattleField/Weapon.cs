@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace RobotDinosaurBattleField
 {
     
-  class Weapon
+  public class Weapon
     {
-        public string[] weaponType = new string[] { "Sword","Gun" };
-        public Weapon(string weaponType)
+        public string weaponType;
+        public int attackPower;
+        public Weapon(string weaponType, int attackPower)
         {
-            
+            this.weaponType = weaponType;
+            this.attackPower = attackPower;
            
         }
     }

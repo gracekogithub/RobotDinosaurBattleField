@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace RobotDinosaurBattleField
 {
-    class Fleet
+    public class Fleet
     {
-        //public string roboWeapon;
+        
         public List<Robot> fleet;
-
-       
-
-        public int roundWin;
-        public Weapon weapon;
-        public int resultR;
-
 
         public Fleet()
         {
             fleet = new List<Robot>();
             
-            Robot robot1 = new Robot("Stan");
-            Robot robot2 = new Robot("Bob");
-            Robot robot3 = new Robot("King");
+            Robot robot1 = new Robot("Stan","ok",5);
+            Robot robot2 = new Robot("Bob","better", 10);
+            Robot robot3 = new Robot("King","best", 20);
             fleet.Add(robot1);
             fleet.Add(robot2);
             fleet.Add(robot3);

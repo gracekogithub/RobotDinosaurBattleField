@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace RobotDinosaurBattleField
 {
-    class Dinosaur
+    public class Dinosaur
     {
-        public string dinosaurType;
+        public string dinoType;
         public int dinoHealth;
-        public int dinoAttack;
+        public int dinoAttackPower;
         public int dinoEnergyLevel;
         
         
 
 
-        public Dinosaur(string dinoType)
+        public Dinosaur(string dinoType, int dinoAttackPower)
         {
             //List<Dinosaur> dino = new List<Dinosaur>();
 
-            dinosaurType = dinoType;
+            dinoType = dinoType;
             dinoHealth = 100;
-            dinoAttack = 50;
+            this.dinoAttackPower = dinoAttackPower;
             dinoEnergyLevel = 5;
             
             
         }
         public void AttackRobot(Robot robot)//method1 
         {
-            robot.roboHealth -= dinoAttack;
-            Console.WriteLine($"{dinosaurType} attacks {robot.robotName} for {dinoAttack}," +
-                     $" and {dinosaurType} gained {robot.roboHealth -= dinoAttack} and Energy Level {dinoEnergyLevel + 1}");
+            robot.roboHealth -= dinoAttackPower;
+            Console.WriteLine($"{dinoType} attacks {robot.robotName} for {dinoAttackPower}," +
+                     $" and {dinoType} gained {robot.roboHealth -= dinoAttackPower} and Energy Level {dinoEnergyLevel + 1}");
         }
     }
 }
