@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace RobotDinosaurBattleField
 {
-    class Weapon
+    
+  class Weapon
     {
         public string weaponType;
-
         public Weapon(string weapon)
-        { 
+        {
             weaponType = weapon;
         }
-        
     }
+    
 }
 //sword action: swing,block-- robot attack ability:punch,flip
 //fire action:shootfire,block--dinosaur ability; bite,throw

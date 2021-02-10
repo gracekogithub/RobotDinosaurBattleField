@@ -9,33 +9,57 @@ namespace RobotDinosaurBattleField
     class BattleField
     {
         public int round;
-        public int score;
         public Fleet roboFleet;
         public Herd dinoHerd;
-       
+        public int dinoHealthTotal;
+        public int roboHealthTotal;
+        public int attack;
+        public Robot robot;
+        
 
 
         public BattleField()
         {
             round = 0;
-            score = 0;
-            Fleet roboFleet = new Fleet();
-            Herd dinoHerd = new Herd();
-        }
-        //start playing -load weapon-attack-win-lose---
+            roboFleet = new Fleet();
+            dinoHerd = new Herd();
+            dinoHealthTotal = 100;
+            roboHealthTotal = 100;
+            attack =20;
+            robot = new Robot("");
 
-        public void RunBattle() //main method
+        }
+
+        
+
+        public void RunBattle()
         {
+            Console.WriteLine("Welcome");
+
+            
+         
+
             roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
             dinoHerd.herd[0].AttackRobot(roboFleet.fleet[0]);
+            TurnAttack();
 
-                Console.WriteLine();
-            
-
-            
-            //Console.WriteLine(roboFleet.fleet[0].robotName);
-            
         }
+
         
+        public void TurnAttack()
+        {
+            if (attack==100)
+            {
+                Console.WriteLine("");
+            }
+            if (dinoHealthTotal == 0 && roboHealthTotal > 0)
+            {
+                Console.WriteLine("Robot wins");
+            }
+            if (roboHealthTotal==0 && dinoHealthTotal >0)
+            {
+                Console.WriteLine("Dinosaur wins");
+            }
+        }
     }
 }

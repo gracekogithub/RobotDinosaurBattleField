@@ -12,18 +12,30 @@ namespace RobotDinosaurBattleField
         public int roboHealth;
         public int attack;
         public int powerLevel;
-        
+      
+        public int roundWin;
+        public Weapon weapon;
+      
+      
+
         public Robot(string name)
         {
             //List<Robot> robot = new List<Robot>();
             
             robotName = name;
             roboHealth = 100;
-            attack = 20;
+            attack = 50;
             powerLevel = 5;
+            weapon = new Weapon("Sword");
+
+            roundWin = 0;
+           
+         
         }
 
         public void AttackDino(Dinosaur dinos)
+        
+        
         {
             Console.WriteLine($"{robotName} attack {dinos.dinosaurType} for {attack}, " +
             $"and {robotName} got {attack} points and power lever up as {powerLevel++} ");
@@ -31,26 +43,10 @@ namespace RobotDinosaurBattleField
           
         }
       
-        public void ChoseYourWeapon(Weapon weaponType)
+        public void ChoseYourWeapon()
         {
-            Console.WriteLine($"{robotName} loaded a {weaponType}");
-
+            Console.WriteLine($"{robotName} loaded a {weapon}");
+            Console.ReadLine();
         }
-       
-        //    
-
- 
-        //public void CalculateRoboHealth()
-        //{
-        //    if (robotHealth <= 0)
-        //    {
-        //        Console.WriteLine("RoboKing lost the game.");
-        //    }
-        //    else 
-        //    {
-        //        Console.WriteLine("RoboKing! Please continue to play.");
-        //    }
-        //}
-
+        }
     }
-}

@@ -8,7 +8,7 @@ namespace RobotDinosaurBattleField
 {
     class Fleet
     {
-        public string roboWeapon;
+        //public string roboWeapon;
         public List<Robot> fleet;
      
 
