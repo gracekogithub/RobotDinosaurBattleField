@@ -10,11 +10,12 @@ namespace RobotDinosaurBattleField
     {
         public string robotName;
         public int roboHealth;
-        public int attack;
+        public int roboAttack;
         public int powerLevel;
       
         public int roundWin;
         public Weapon weapon;
+        public int resultR;
       
       
 
@@ -24,29 +25,26 @@ namespace RobotDinosaurBattleField
             
             robotName = name;
             roboHealth = 100;
-            attack = 50;
+            roboAttack = 50;
             powerLevel = 5;
-            weapon = new Weapon("Sword");
-
+            Weapon weapon= new Weapon("");
             roundWin = 0;
            
-         
         }
 
         public void AttackDino(Dinosaur dinos)
-        
-        
         {
-            Console.WriteLine($"{robotName} attack {dinos.dinosaurType} for {attack}, " +
-            $"and {robotName} got {attack} points and power lever up as {powerLevel++} ");
-            dinos.dinoHealth -= attack;
-          
+
+            int resultR = dinos.dinoHealth -= roboAttack;
+            Console.WriteLine($"{robotName} attack {dinos.dinosaurType} for {roboAttack}, " +
+            $"and {robotName} got {resultR} points and power lever up as {powerLevel + 1} ");
+
+            ChooseYourWeapon();
         }
-      
-        public void ChoseYourWeapon()
+
+        public void ChooseYourWeapon()
         {
-            Console.WriteLine($"{robotName} loaded a {weapon}");
-            Console.ReadLine();
-        }
+            Console.WriteLine($"{robotName} picked a sword.");
         }
     }
+}

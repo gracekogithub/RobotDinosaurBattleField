@@ -8,58 +8,64 @@ namespace RobotDinosaurBattleField
 {
     class BattleField
     {
-        public int round;
+        public int countRobo;
+        public int countDino;
         public Fleet roboFleet;
         public Herd dinoHerd;
         public int dinoHealthTotal;
         public int roboHealthTotal;
-        public int attack;
         public Robot robot;
-        
 
 
         public BattleField()
         {
-            round = 0;
             roboFleet = new Fleet();
             dinoHerd = new Herd();
             dinoHealthTotal = 100;
             roboHealthTotal = 100;
-            attack =20;
-            robot = new Robot("");
+            
 
         }
-
-        
 
         public void RunBattle()
         {
-            Console.WriteLine("Welcome");
-
-            
-         
-
-            roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
-            dinoHerd.herd[0].AttackRobot(roboFleet.fleet[0]);
+            Console.WriteLine("Welcome to Robot vs Dinosaur Battlefield!\n " +
+                "The robot team will attack first.");
             TurnAttack();
+            
 
         }
-
         
         public void TurnAttack()
         {
-            if (attack==100)
+          
+            int countRobo = roboFleet.fleet.Count;
+            int countDino = dinoHerd.herd.Count;
+            roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
+
+            int i = 0; i++;
+            if (roboFleet.fleet.Count > dinoHerd.herd.Count)
             {
-                Console.WriteLine("");
+                roboFleet.fleet[0].AttackDino(dinoHerd.herd[0]);
+                Console.WriteLine("This round, Robot wins");
+                (dinoHerd.herd).RemoveAt(0);
+                i++;
             }
-            if (dinoHealthTotal == 0 && roboHealthTotal > 0)
+            if (roboFleet.fleet.Count < dinoHerd.herd.Count)
             {
-                Console.WriteLine("Robot wins");
+                dinoHerd.herd[0].AttackRobot(roboFleet.fleet[0]);
+                Console.WriteLine("This round, Dinosaur wins");
+                (roboFleet.fleet).RemoveAt(0);
+                i++;
             }
-            if (roboHealthTotal==0 && dinoHealthTotal >0)
+           
+            if (roboFleet.fleet.Count == 0 || dinoHerd.herd.Count == 0 )
             {
-                Console.WriteLine("Dinosaur wins");
+                Console.WriteLine("Game Over!");
             }
+            
+            
         }
     }
+    
 }

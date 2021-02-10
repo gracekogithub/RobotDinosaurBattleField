@@ -9,10 +9,11 @@ namespace RobotDinosaurBattleField
     
   class Weapon
     {
-        public string weaponType;
-        public Weapon(string weapon)
+        public string[] weaponType = new string[] { "Sword","Gun" };
+        public Weapon(string weaponType)
         {
-            weaponType = weapon;
+            
+           
         }
     }
     

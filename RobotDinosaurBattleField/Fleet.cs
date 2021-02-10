@@ -10,19 +10,26 @@ namespace RobotDinosaurBattleField
     {
         //public string roboWeapon;
         public List<Robot> fleet;
-     
+
+       
+
+        public int roundWin;
+        public Weapon weapon;
+        public int resultR;
+
 
         public Fleet()
         {
             fleet = new List<Robot>();
+            
             Robot robot1 = new Robot("Stan");
             Robot robot2 = new Robot("Bob");
             Robot robot3 = new Robot("King");
             fleet.Add(robot1);
             fleet.Add(robot2);
             fleet.Add(robot3);
-
-
         }
+       
     }
 }
+

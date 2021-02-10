@@ -13,6 +13,7 @@ namespace RobotDinosaurBattleField
         public List<Dinosaur> herd;
 
 
+
         public Herd()
         {
             herd = new List<Dinosaur>();
@@ -25,7 +26,8 @@ namespace RobotDinosaurBattleField
 
             dinosaurEnergy = 5;
         }
+        
 
-       
+
     }
 }
